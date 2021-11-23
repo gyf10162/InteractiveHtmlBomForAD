@@ -316,7 +316,12 @@ function drawFootprint(ctx, layer, scalefactor, footprint, padColor, padHoleColo
   // draw drawings
   for (var drawing of footprint.drawings) {
     if (drawing.layer == layer) {
-      drawDrawing(ctx, scalefactor, drawing.drawing, padColor);
+      try{
+        drawDrawing(ctx, scalefactor, drawing.drawing, padColor);
+      }
+      catch (err) {
+        console.error("%s", err);
+      }
     }
   }
   // draw pads
