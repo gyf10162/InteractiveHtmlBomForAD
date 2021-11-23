@@ -42,7 +42,7 @@ function drawText(ctx, text, color) {
     tilt = 0.125;
   }
   var interline = text.height * 1.5 + text.thickness;
-  var txt = text.text.split("\n");
+  var txt = text.text.split(/[\r\n]+|[\n\r]+|[\n]+/);
   // KiCad ignores last empty line.
   if (txt[txt.length - 1] == '') txt.pop();
   ctx.rotate(deg2rad(angle));
